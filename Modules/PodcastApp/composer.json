@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/podcastapp",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PodcastApp\\": "app/",
+            "Modules\\PodcastApp\\Database\\Factories\\": "database/factories/",
+            "Modules\\PodcastApp\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\PodcastApp\\Tests\\": "tests/"
+        }
+    }
+}

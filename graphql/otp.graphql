@@ -1,0 +1,10 @@
+extend type Mutation {
+    OTPRequest(mobile: String!): OTP
+    AuthenticateUser(mobile: String! code: Int!): String
+}
+
+type OTP {
+    otp: Int!
+    otp_expire_at : DateTime!
+    created_at : DateTime!
+}

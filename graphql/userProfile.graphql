@@ -1,0 +1,10 @@
+type UserProfile {
+    id: ID!
+    user: User! @belongsTo
+    active: Boolean!
+    donate: Boolean!
+    monetized: Boolean!
+    donate_text: String!
+    avatar: String!
+    birthday: DateTime!
+}
