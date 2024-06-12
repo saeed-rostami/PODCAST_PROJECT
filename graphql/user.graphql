@@ -1,4 +1,5 @@
 extend type Query {
+    me: User @auth @guard
     "Find a single user by an identifying attribute."
     user(
         "Search by primary key."
@@ -18,15 +19,18 @@ extend type Query {
 }
 
 input UpdateProfile {
-    username: String
+    username: String @rules(apply: ["App\\Rules\\UsernameRule" , "min:2" , "max:32"])
     birthday: DateTime
-    avatar: String
     donate: Boolean
-    donate_text: String
+    donate_text: String @rules(apply: ["min:8" , "max:16"])
 }
 
 extend type Mutation {
     UpdateProfile(input: UpdateProfile! @spread): User @guard
+
+    "Upload a file that is publicly available."
+    uploadAvatar(file: UploadAvatar!): Boolean @guard
+
 }
 
 "Account of a person who utilizes this application."

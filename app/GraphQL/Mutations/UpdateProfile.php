@@ -26,7 +26,6 @@ final readonly class UpdateProfile
             UserProfile::query()
                 ->create(
                     [
-                        'avatar' => $args['avatar'],
                         'birthday' => $args['birthday'],
                         'donate' => $args['donate'],
                         'donate_text' => $args['donate_text'],
@@ -36,7 +35,6 @@ final readonly class UpdateProfile
         } else {
             $profile->update(
                 [
-                    'avatar' => $args['avatar'],
                     'birthday' => $args['birthday'],
                     'donate' => $args['donate'],
                     'donate_text' => $args['donate_text'],
