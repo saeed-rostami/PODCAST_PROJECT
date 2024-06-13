@@ -1,0 +1,17 @@
+extend type Query {
+    episodes
+    : [Episode!]! @all
+}
+
+type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
+    id: ID!
+    title: String!
+    description: String
+    cover: String!
+    season: Season! @belongsTo
+    podcast : Podcast @method(name: "podcast")
+    allow_comment: Boolean!
+    allow_share: Boolean!
+    status: Int!
+
+}

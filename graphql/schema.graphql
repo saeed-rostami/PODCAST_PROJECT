@@ -10,4 +10,9 @@ type Mutation
 #import user.graphql
 #import userProfile.graphql
 #import otp.graphql
+#import type.graphql
+#import category.graphql
+#import podcast.graphql
+#import season.graphql
+#import episode.graphql
 

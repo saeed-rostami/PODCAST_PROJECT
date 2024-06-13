@@ -1,0 +1,16 @@
+extend type Query {
+    categories
+    (type_id : ID @where(key: "type_id"))
+    : [Category!]! @all
+    category
+    (id: ID @eq @rules(apply: ["exists:categories,id"])): Category @find
+
+}
+
+type Category @model(class: "Modules\\PodcastApp\\Models\\Category") {
+    id: ID!
+    title: String!
+    description: String
+    status: Int
+    type : Type @belongsTo
+}

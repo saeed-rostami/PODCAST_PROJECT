@@ -1,0 +1,12 @@
+extend type Query  {
+    types: [Type!]! @all
+    type(id: ID @eq @rules(apply: ["exists:types,id"])): Type @find
+}
+
+type Type @model(class: "Modules\\PodcastApp\\Models\\Type") {
+    id: ID!
+    title: String!
+    description: String
+    status: Int
+    categories : [Category] @hasMany
+}
