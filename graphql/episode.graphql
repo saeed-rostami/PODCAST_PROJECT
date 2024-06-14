@@ -13,5 +13,6 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     allow_comment: Boolean!
     allow_share: Boolean!
     status: Int!
+    file: EpisodeFile @hasOne
 
 }

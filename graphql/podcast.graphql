@@ -6,6 +6,9 @@ extend type Query {
     )
 
     : [Podcast!]! @all
+
+    podcast (id: Int
+     @eq) : Podcast! @find
 }
 
 type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {

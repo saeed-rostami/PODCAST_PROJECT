@@ -3,9 +3,11 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 
 scalar UploadAvatar
 @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+scalar JSON @scalar(class: "MLL\\GraphQLScalars\\JSON")
 
 type Query
 type Mutation
+
 
 #import user.graphql
 #import userProfile.graphql
@@ -15,4 +17,5 @@ type Mutation
 #import podcast.graphql
 #import season.graphql
 #import episode.graphql
+#import episodeFile.graphql
 

@@ -1,0 +1,7 @@
+
+type EpisodeFile @model(class: "Modules\\PodcastApp\\Models\\EpisodeFile") {
+    id: ID!
+    file: String!
+    metas : JSON
+
+}

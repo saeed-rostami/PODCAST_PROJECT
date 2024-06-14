@@ -5,16 +5,20 @@ namespace Modules\PodcastApp\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\PodcastApp\Database\Factories\EpisodeFactory;
 
 class Episode extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    protected $table = "episodes";
 
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
+    protected $guarded = ['id'];
 
     protected static function newFactory(): EpisodeFactory
     {
@@ -31,4 +35,8 @@ class Episode extends Model
         return $this->season->podcast;
     }
 
+    public function file() : HasOne
+    {
+        return $this->hasOne(EpisodeFile::class);
+    }
 }

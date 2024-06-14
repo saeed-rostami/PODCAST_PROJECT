@@ -14,6 +14,9 @@ use Modules\PodcastApp\Http\Controllers\PodcastAppController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('podcastapp', PodcastAppController::class)->names('podcastapp');
+Route::middleware(['auth:api'])->prefix('v1')->group(function () {
+//    Route::apiResource('podcastapp', PodcastAppController::class)->names('podcastapp');
+
+    Route::post('episode', [\Modules\PodcastApp\Http\Controllers\EpisodeController::class, 'store']);
+
 });

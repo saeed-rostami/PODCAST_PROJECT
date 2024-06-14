@@ -13,7 +13,11 @@ class EpisodeFile extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
+    protected $guarded = ['id'];
+
+    protected $table = 'episode_files';
+
+    protected $casts = ['metas' => 'json'];
 
     protected static function newFactory(): EpisodeFileFactory
     {
