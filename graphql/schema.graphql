@@ -20,4 +20,6 @@ type Mutation
 #import episode.graphql
 #import episodeFile.graphql
 #import followedPodcast.graphql
+#import playList.graphql
+#import comment.graphql
 

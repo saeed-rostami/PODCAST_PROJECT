@@ -12,9 +12,15 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     cover: String!
     season: Season! @belongsTo
     podcast : Podcast @method(name: "podcast")
+    likes: [Like] @morphMany
+    comments: [Comment] @morphMany
     allow_comment: Boolean!
     allow_share: Boolean!
     status: Int!
     file: EpisodeFile @hasOne
+    likes_count: Int @count(relation: "likes")
+    comments_count: Int @count(relation: "comments")
+
+    created_at : DateTime!
 
 }

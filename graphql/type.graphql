@@ -11,4 +11,5 @@ type Type @model(class: "Modules\\PodcastApp\\Models\\Type") {
     categories : [Category] @hasMany
     podcasts: [Podcast] @hasManyThrough
     podcasts_count: Int @count(relation: "podcasts")
+    created_at : DateTime!
 }

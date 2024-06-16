@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\PodcastApp\Database\Factories\PodcastFactory;
 
@@ -55,5 +56,18 @@ class Podcast extends Model
     public function follows(): HasMany
     {
         return $this->hasMany(UserFollowedPodcast::class);
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'item');
+
+    }
+
+
+    public function likes(): MorphMany
+    {
+        return $this->morphMany(Like::class, 'item');
+
     }
 }

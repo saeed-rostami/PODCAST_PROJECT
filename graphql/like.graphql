@@ -2,9 +2,9 @@ extend type Mutation @guard {
     LikeTrigger(item : String! @rules(apply: ["required" , "in:EPISODE,PODCAST"]) item_id: Int! @rules(apply: ["required"])): Boolean
 }
 
-union Item = Episode | Podcast
+union LikeItem = Episode | Podcast
 
 type Like @model(class: "Modules\\PodcastApp\\Models\\Like") {
     id: ID!
-    item: Item @morphTo
+    item: LikeItem @morphTo
 }

@@ -46,4 +46,10 @@ class Episode extends Model
         return $this->morphMany(Like::class, 'item');
 
     }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'item');
+
+    }
 }

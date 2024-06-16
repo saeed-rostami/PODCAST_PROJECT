@@ -1,0 +1,24 @@
+extend type Query {
+    playList: [PlayList!]! @guard @all @whereAuth(relation: "user")
+}
+
+
+extend type Mutation {
+    createPlayList(title: String! @rules(apply: ["required" , "max:16" , "min:3"]) is_private: Boolean! @rules(apply: ["required" , "bool"])) : Boolean
+
+    syncEpisodeToPlayList(playlist_id: Int! @rules(apply: ["required" , "exists:user_play_lists,id"]) episode_id: Int!
+    @rules(apply: ["required" , "exists:episodes,id"])
+
+    ): Boolean
+}
+
+
+type PlayList @model(class: "Modules\\PodcastApp\\Models\\UserPlayList") {
+    id: ID!
+    title: String!
+    is_private: Boolean!
+    episodes: [Episode]! @belongsToMany
+    episodes_count: Int! @count(relation: "episodes")
+    user: User! @belongsTo
+    created_at : DateTime!
+}

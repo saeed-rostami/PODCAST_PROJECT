@@ -20,9 +20,16 @@ type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {
     user: User @belongsTo
     seasons: [Season] @hasMany
     episodes: [Episode] @hasManyThrough
+    likes: [Like] @morphMany
+    comments: [Comment] @morphMany
     status: Int!
     cover: String!
     allow_comment: Boolean!
     episodes_count: Int @count(relation: "episodes")
     seasons_count: Int @count(relation: "seasons")
+    likes_count: Int @count(relation: "likes")
+    comments_count: Int @count(relation: "comments")
+
+    created_at : DateTime!
+
 }

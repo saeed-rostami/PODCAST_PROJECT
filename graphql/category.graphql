@@ -13,4 +13,5 @@ type Category @model(class: "Modules\\PodcastApp\\Models\\Category") {
     description: String
     status: Int
     type : Type @belongsTo
+    created_at : DateTime!
 }

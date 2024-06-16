@@ -18,6 +18,7 @@ return new class extends Migration
                 ->on("users")
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->morphs("item");
 
 
             $table->string('comment');

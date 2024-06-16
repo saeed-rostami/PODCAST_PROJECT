@@ -1,0 +1,18 @@
+union CommentItem = Podcast | Episode
+
+extend type Mutation @guard {
+    createComment(
+        comment: String! @rules(apply: ["required" , "string" , "max:132" , "min:3"])
+        item_type: String! @rules(apply: ["required" , "in:PODCAST,EPISODE"])
+        item_id: Int!
+    ): Boolean
+}
+type Comment @model(class: "Modules\\PodcastApp\\Models\\Comment") {
+    id: ID!
+    comment: String!
+    status: Boolean!
+    user : User! @belongsTo
+    item: CommentItem! @morphTo
+
+    created_at : DateTime!
+}
