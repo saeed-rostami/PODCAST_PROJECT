@@ -34,8 +34,9 @@ class Type extends Model
         return $this->hasManyThrough(
             Podcast::class,
             Category::class,
-            'category_id',
             'type_id',
+            'category_id',
+
         );
     }
 }

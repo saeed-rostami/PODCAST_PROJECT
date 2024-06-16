@@ -9,4 +9,6 @@ type Type @model(class: "Modules\\PodcastApp\\Models\\Type") {
     description: String
     status: Int
     categories : [Category] @hasMany
+    podcasts: [Podcast] @hasManyThrough
+    podcasts_count: Int @count(relation: "podcasts")
 }

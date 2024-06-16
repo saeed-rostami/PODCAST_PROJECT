@@ -14,8 +14,10 @@ type Mutation
 #import otp.graphql
 #import type.graphql
 #import category.graphql
+#import like.graphql
 #import podcast.graphql
 #import season.graphql
 #import episode.graphql
 #import episodeFile.graphql
+#import followedPodcast.graphql
 

@@ -1,6 +1,8 @@
 extend type Query {
     episodes
     : [Episode!]! @all
+
+    likeEpisodes : [Episode]! @guard
 }
 
 type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {

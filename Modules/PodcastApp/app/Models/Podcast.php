@@ -51,4 +51,9 @@ class Podcast extends Model
             'season_id'
         );
     }
+
+    public function follows(): HasMany
+    {
+        return $this->hasMany(UserFollowedPodcast::class);
+    }
 }
