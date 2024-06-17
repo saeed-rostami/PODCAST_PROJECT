@@ -20,3 +20,5 @@ Route::middleware(['auth:api'])->prefix('v1')->group(function () {
     Route::post('episode', [\Modules\PodcastApp\Http\Controllers\EpisodeController::class, 'store']);
 
 });
+Route::get('test', [\Modules\PodcastApp\Http\Controllers\EpisodeController::class, 'index']);
+

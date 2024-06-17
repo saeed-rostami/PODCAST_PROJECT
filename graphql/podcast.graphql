@@ -29,6 +29,9 @@ type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {
     seasons_count: Int @count(relation: "seasons")
     likes_count: Int @count(relation: "likes")
     comments_count: Int @count(relation: "comments")
+    follows_count: Int @count(relation: "follows")
+    listensCount: Int @method(name: "listensCount") @cache(maxAge: 6000)
+    totalDuration: Int @method(name: "totalDuration") @cache(maxAge: 6000)
 
     created_at : DateTime!
 
