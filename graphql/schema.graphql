@@ -22,4 +22,6 @@ type Mutation
 #import followedPodcast.graphql
 #import playList.graphql
 #import comment.graphql
+#import subscriptionPlan.graphql
+#import tag.graphql
 

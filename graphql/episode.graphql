@@ -3,6 +3,7 @@ extend type Query {
     : [Episode!]! @all
 
     likeEpisodes : [Episode]! @guard
+    listenedEpisodes : [Episode]! @guard
 }
 
 type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
@@ -21,7 +22,8 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     likes_count: Int @count(relation: "likes")
     comments_count: Int @count(relation: "comments")
     listens_count: Int @count(relation: "listens") @cache(maxAge: 6000)
-
+    userListenedSecond: Int @method(name: "userListenedSecond")
+    tags: [Tag]! @belongsToMany
     created_at : DateTime!
 
 }

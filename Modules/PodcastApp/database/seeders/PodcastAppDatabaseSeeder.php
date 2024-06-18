@@ -17,13 +17,14 @@ class PodcastAppDatabaseSeeder extends Seeder
         // $this->call([]);
 //        $this->call(TypeSeeder::class);
 //        $this->call(CategorySeeder::class);
+//        $this->call(PlanSeedSeeder::class);
 
-        Podcast::factory()
-            ->has(Season::factory()
-                ->has(Episode::factory()->count(3))
-                ->count(1))
-            ->count(25)
-            ->create();
+//        Podcast::factory()
+//            ->has(Season::factory()
+//                ->has(Episode::factory()->count(3))
+//                ->count(1))
+//            ->count(25)
+//            ->create();
 
     }
 }

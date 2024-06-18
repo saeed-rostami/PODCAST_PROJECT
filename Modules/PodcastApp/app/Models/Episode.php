@@ -9,11 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use Modules\PodcastApp\Database\Factories\EpisodeFactory;
+use Modules\PodcastApp\Traits\Taging;
 
 class Episode extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Taging;
 
     protected $table = "episodes";
 
@@ -56,5 +58,15 @@ class Episode extends Model
     public function listens(): HasMany
     {
         return $this->hasMany(UserListeningAnalytics::class);
+    }
+
+    public function userListenedSecond()
+    {
+        $user_id = Auth::id();
+        return UserListeningAnalytics::query()
+            ->where("episode_id" , $this->id)
+            ->where("user_id" , $user_id)
+            ->first()
+        ?->second;
     }
 }

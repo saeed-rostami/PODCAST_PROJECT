@@ -11,6 +11,7 @@ extend type Query {
     @eq) : Podcast! @find
 
     followedPodcasts: [Podcast!]! @guard
+    myPodcasts: [Podcast!]! @guard
 }
 
 type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {

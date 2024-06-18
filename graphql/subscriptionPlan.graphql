@@ -1,0 +1,13 @@
+extend type Query  {
+    subscriptionPlans: [SubscriptionPlan!]! @all
+}
+
+
+type SubscriptionPlan @model(class: "Modules\\PodcastApp\\Models\\SubscriptionPlan") {
+    id : ID!
+    title: String!
+    description: String!
+    is_active: Boolean!
+    price: Float!
+    duration_days: Int!
+}

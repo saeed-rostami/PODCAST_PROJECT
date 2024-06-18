@@ -1,0 +1,4 @@
+type Tag @model(class: "Modules\\PodcastApp\\Models\\Tag") {
+    id: ID!
+    title: String!
+}
