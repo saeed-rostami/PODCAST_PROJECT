@@ -1,0 +1,10 @@
+
+type UserSubscribedHistory @model(class: "Modules\\PodcastApp\\Models\\UserSubscribedPlanHistory") {
+    id: ID!
+    user: User! @belongsTo
+    plan: SubscriptionPlan! @belongsTo
+    price: Int!
+    created_at: DateTime!
+    expire_at: DateTime!
+    start_at: DateTime!
+}

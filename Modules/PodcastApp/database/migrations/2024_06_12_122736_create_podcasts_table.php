@@ -28,6 +28,8 @@ return new class extends Migration
             $table->tinyInteger("status")->default(1);
             $table->string("cover")->nullable();
             $table->boolean('allow_comment');
+            $table->enum('financial_status' , ["FREE" , "PREMIUM"])
+            ->default("FREE");
             $table->softDeletes();
             $table->timestamps();
         });

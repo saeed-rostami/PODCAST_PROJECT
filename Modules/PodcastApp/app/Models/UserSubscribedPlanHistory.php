@@ -32,7 +32,7 @@ class UserSubscribedPlanHistory extends Model
 
     public function plan(): BelongsTo
     {
-        return $this->belongsTo(SubscriptionPlan::class);
+        return $this->belongsTo(SubscriptionPlan::class, 'plan_id');
     }
 
     public function isExpired(): bool

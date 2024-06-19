@@ -2,6 +2,9 @@ extend type Query  {
     subscriptionPlans: [SubscriptionPlan!]! @all
 }
 
+extend type Mutation @guard {
+    orderSubscriptionPlan(plan_id: ID! @rules(apply: ["required","exists:subscription_plans,id"])): Boolean
+}
 
 type SubscriptionPlan @model(class: "Modules\\PodcastApp\\Models\\SubscriptionPlan") {
     id : ID!

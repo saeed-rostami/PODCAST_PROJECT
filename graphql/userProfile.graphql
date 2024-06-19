@@ -7,4 +7,5 @@ type UserProfile {
     donate_text: String!
     avatar: String!
     birthday: DateTime!
+    gender: String!
 }

@@ -23,5 +23,6 @@ type Mutation
 #import playList.graphql
 #import comment.graphql
 #import subscriptionPlan.graphql
+#import userSubscribedHistory.graphql
 #import tag.graphql
 

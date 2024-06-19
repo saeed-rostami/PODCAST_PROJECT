@@ -22,6 +22,7 @@ input UpdateProfile {
     username: String @rules(apply: ["App\\Rules\\UsernameRule" , "min:2" , "max:32"])
     birthday: DateTime
     donate: Boolean
+    gender: String @rules(apply: ["in:MALE,FEMALE,OTHER"])
     donate_text: String @rules(apply: ["min:8" , "max:16"])
 }
 
@@ -49,6 +50,10 @@ type User {
 
     "Unique email address."
     mobile: String!
+
+    hasActivePlan: Boolean! @method(name: "hasActivePlan")
+
+    subscribedPlans: [UserSubscribedHistory] @hasMany
 
     "When the email was verified."
     email_verified_at: DateTime
