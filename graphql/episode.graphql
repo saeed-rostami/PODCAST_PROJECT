@@ -1,8 +1,12 @@
 extend type Query {
+
+    #//FETCH ALL CHANNELS
     episodes
     : [Episode!]! @all
 
-    likeEpisodes : [Episode]! @guard
+    likeEpisodes : [Episode]! @guard #//FETCH EPISODES THAT AUTH LIKED THEM
+
+    #//FETCH EPISODES THAT AUTH LISTENED THEM
     listenedEpisodes : [Episode]! @guard
 }
 
@@ -12,7 +16,7 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     description: String
     cover: String!
     season: Season! @belongsTo
-    podcast : Podcast @method(name: "podcast")
+    channel : Channel @method(name: "channel")
     likes: [Like] @morphMany
     comments: [Comment] @morphMany
     allow_comment: Boolean!
@@ -25,6 +29,12 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     listens_count: Int @count(relation: "listens") @cache(maxAge: 6000)
     userListenedSecond: Int @method(name: "userListenedSecond")
     tags: [Tag]! @belongsToMany
+    publish_at : DateTime!
+    published_at : DateTime!
     created_at : DateTime!
+
+    jalali_publish_at : String @method(name: "jalaliPublishAt")
+    jalali_published_at : String @method(name: "jalaliPublishedAt")
+
 
 }

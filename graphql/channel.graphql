@@ -1,23 +1,30 @@
 extend type Query {
-    channels
+
+    channels #//FETCH ALL CHANNELS
     (
-        user: Int @where(key: "user_id")
-        category: Int @where(key: "category_id")
+        user: Int @where(key: "user_id") #//A USER CHANNELS
+        category: Int @where(key: "category_id") #//A CATEGORY CHANNELS
     )
 
     : [Channel!]! @all
 
+    #//FETCH A SINGLE CHANNELS
     channel (id: Int
     @eq) : Channel! @find
 
+    #//FETCH CHANNELS THAT AUTH FOLLOWED THEM
     followedChannels: [Channel!]! @guard
-    myChannels: [Channel!]! @guard
+
+    #//FETCH CHANNELS THAT BELONGS TO AUTH USER
+    myChannels: [Channel!]! @whereAuth(relation: "user") @guard @all
 }
 
 type Channel @model(class: "Modules\\PodcastApp\\Models\\Channel") {
     id: ID!
     title: String!
     description: String
+    category: Category! @belongsTo
+    type: Type! @method(name: "type")
     user: User @belongsTo
     seasons: [Season] @hasMany
     episodes: [Episode] @hasManyThrough

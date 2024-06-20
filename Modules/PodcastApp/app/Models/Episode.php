@@ -2,6 +2,7 @@
 
 namespace Modules\PodcastApp\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,11 +13,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Modules\PodcastApp\Database\Factories\EpisodeFactory;
+use Modules\PodcastApp\Traits\JalaliDate;
 use Modules\PodcastApp\Traits\Taging;
 
 class Episode extends Model
 {
-    use HasFactory, SoftDeletes, Taging;
+    use HasFactory, SoftDeletes, Taging, JalaliDate;
 
     protected $table = "episodes";
 
@@ -83,4 +85,13 @@ class Episode extends Model
             ->where("item_id", $this->id)
             ->exists();
     }
+
+
+   protected static function booted(): void
+   {
+       self::addGlobalScope("published", function (Builder $query) {
+            $query
+               ->whereNotNull("published_at");
+       });
+   }
 }
