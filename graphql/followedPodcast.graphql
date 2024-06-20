@@ -1,8 +1,0 @@
-extend type Mutation @guard {
-    FollowedPodcastTrigger(podcast_id: Int! @rules(apply: ["exists:podcasts,id"])): Boolean
-}
-
-type FollowedPodcast @model(class: "Modules\\PodcastApp\\Models\\UserFollowedPodcast") {
-    id: ID!
-    podcast: Podcast @belongsTo
-}

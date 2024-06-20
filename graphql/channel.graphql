@@ -1,20 +1,20 @@
 extend type Query {
-    podcasts
+    channels
     (
         user: Int @where(key: "user_id")
         category: Int @where(key: "category_id")
     )
 
-    : [Podcast!]! @all
+    : [Channel!]! @all
 
-    podcast (id: Int
-    @eq) : Podcast! @find
+    channel (id: Int
+    @eq) : Channel! @find
 
-    followedPodcasts: [Podcast!]! @guard
-    myPodcasts: [Podcast!]! @guard
+    followedChannels: [Channel!]! @guard
+    myChannels: [Channel!]! @guard
 }
 
-type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {
+type Channel @model(class: "Modules\\PodcastApp\\Models\\Channel") {
     id: ID!
     title: String!
     description: String
@@ -31,9 +31,11 @@ type Podcast @model(class: "Modules\\PodcastApp\\Models\\Podcast") {
     likes_count: Int @count(relation: "likes")
     comments_count: Int @count(relation: "comments")
     follows_count: Int @count(relation: "follows")
+    isFollowed: Boolean @method(name: "isFollowed")
     listensCount: Int @method(name: "listensCount") @cache(maxAge: 6000)
     totalDuration: Int @method(name: "totalDuration") @cache(maxAge: 6000)
 
+    jalali_created_at : String @method(name: "jalaliCreatedAt")
     created_at : DateTime!
 
 }

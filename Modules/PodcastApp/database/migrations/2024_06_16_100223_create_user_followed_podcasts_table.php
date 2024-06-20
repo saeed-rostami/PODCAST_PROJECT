@@ -19,9 +19,9 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignId("podcast_id")
+            $table->foreignId("channel_id")
                 ->references("id")
-                ->on("podcasts")
+                ->on("channels")
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 

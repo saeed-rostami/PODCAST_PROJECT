@@ -25,9 +25,9 @@ class Season extends Model
         return SeasonFactory::new();
     }
 
-    public function podcast(): BelongsTo
+    public function channel(): BelongsTo
     {
-        return $this->belongsTo(Podcast::class);
+        return $this->belongsTo(Channel::class);
     }
 
     public function episodes(): HasMany

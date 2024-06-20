@@ -3,23 +3,23 @@
 namespace Modules\PodcastApp\Models;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Modules\PodcastApp\Database\Factories\PodcastFactory;
+use Modules\PodcastApp\Traits\JalaliDate;
 
-class Podcast extends Model
+class Channel extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, JalaliDate;
 
-    protected $table = "podcasts";
+    protected $table = "channels";
 
     /**
      * The attributes that are mass assignable.
@@ -51,14 +51,14 @@ class Podcast extends Model
         return $this->hasManyThrough(
             Episode::class,
             Season::class,
-            "podcast_id",
+            "channel_id",
             'season_id'
         );
     }
 
     public function follows(): HasMany
     {
-        return $this->hasMany(UserFollowedPodcast::class);
+        return $this->hasMany(UserFollowedChannel::class);
     }
 
     public function comments(): MorphMany
@@ -93,6 +93,18 @@ class Podcast extends Model
             $du = +$du;
         }
         return $du;
+    }
+
+    public function isFollowed(): bool
+    {
+        if (!Auth::check()) {
+            return false;
+        }
+
+        return DB::table("user_followed_podcasts")
+            ->where("user_id", Auth::id())
+            ->where("podcast_id", $this->id)
+            ->exists();
     }
 
 }

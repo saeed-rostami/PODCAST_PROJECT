@@ -1,0 +1,8 @@
+extend type Mutation @guard {
+    FollowedPodcastTrigger(channel_id: Int! @rules(apply: ["exists:channels,id"])): Boolean
+}
+
+type UserFollowedChannel @model(class: "Modules\\PodcastApp\\Models\\UserFollowedChannel") {
+    id: ID!
+    channel: Channel @belongsTo
+}

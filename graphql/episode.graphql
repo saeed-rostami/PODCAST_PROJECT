@@ -20,6 +20,7 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     status: Int!
     file: EpisodeFile @hasOne
     likes_count: Int @count(relation: "likes")
+    isLiked: Boolean @method(name: "isLiked")
     comments_count: Int @count(relation: "comments")
     listens_count: Int @count(relation: "listens") @cache(maxAge: 6000)
     userListenedSecond: Int @method(name: "userListenedSecond")

@@ -19,7 +19,6 @@ class SeasonFactory extends Factory
     {
         return [
             "title" => "Season 1",
-//            'podcast_id' => self::factoryForModel(Podcast::class)->create()->id
         ];
     }
 }

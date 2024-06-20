@@ -1,8 +1,8 @@
 extend type Mutation @guard {
-    LikeTrigger(item : String! @rules(apply: ["required" , "in:EPISODE,PODCAST"]) item_id: Int! @rules(apply: ["required"])): Boolean
+    LikeTrigger(item : String! @rules(apply: ["required" , "in:EPISODE,CHANNEL"]) item_id: Int! @rules(apply: ["required"])): Boolean
 }
 
-union LikeItem = Episode | Podcast
+union LikeItem = Episode | Channel
 
 type Like @model(class: "Modules\\PodcastApp\\Models\\Like") {
     id: ID!

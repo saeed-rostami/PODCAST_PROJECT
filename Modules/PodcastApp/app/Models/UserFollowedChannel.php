@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\PodcastApp\Database\Factories\UserFollowedPodcastFactory;
 
-class UserFollowedPodcast extends Model
+class UserFollowedChannel extends Model
 {
     use HasFactory;
 
@@ -25,9 +25,9 @@ class UserFollowedPodcast extends Model
         //return UserFollowedPodcastFactory::new();
     }
 
-    public function podcast(): BelongsTo
+    public function channel(): BelongsTo
     {
-        return $this->belongsTo(Podcast::class);
+        return $this->belongsTo(Channel::class);
     }
 
     public function user(): BelongsTo

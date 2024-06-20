@@ -1,0 +1,14 @@
+extend type Query {
+    suggestedPodcasts: Component @field(resolver: "App\\GraphQL\\Queries\\Components\\SuggestedChannels")
+}
+
+union Item = Channel | Episode
+
+type Component {
+    id: ID
+    display_key: String
+    key: String
+    sort_order: Int
+    is_active: Boolean
+    items: [Item!]!
+}

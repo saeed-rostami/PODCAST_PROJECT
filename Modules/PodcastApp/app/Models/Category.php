@@ -30,8 +30,8 @@ class Category extends Model
         return $this->belongsTo(Type::class);
     }
 
-    public function podcasts(): HasMany
+    public function channels(): HasMany
     {
-        return $this->hasMany(Podcast::class);
+        return $this->hasMany(Channel::class);
     }
 }

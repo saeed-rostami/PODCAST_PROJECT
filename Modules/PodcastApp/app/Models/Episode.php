@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Modules\PodcastApp\Database\Factories\EpisodeFactory;
 use Modules\PodcastApp\Traits\Taging;
 
@@ -34,9 +35,9 @@ class Episode extends Model
         return $this->belongsTo(Season::class);
     }
 
-    public function podcast()
+    public function channel()
     {
-        return $this->season->podcast;
+        return $this->season->channel;
     }
 
     public function file() : HasOne
@@ -68,5 +69,18 @@ class Episode extends Model
             ->where("user_id" , $user_id)
             ->first()
         ?->second;
+    }
+
+    public function isLiked(): bool
+    {
+        if (!Auth::check()) {
+            return false;
+        }
+
+        return DB::table("likes")
+            ->where("user_id", Auth::id())
+            ->where("item_type", self::class)
+            ->where("item_id", $this->id)
+            ->exists();
     }
 }

@@ -15,14 +15,15 @@ type Mutation
 #import type.graphql
 #import category.graphql
 #import like.graphql
-#import podcast.graphql
+#import channel.graphql
 #import season.graphql
 #import episode.graphql
 #import episodeFile.graphql
-#import followedPodcast.graphql
+#import followedChannel.graphql
 #import playList.graphql
 #import comment.graphql
 #import subscriptionPlan.graphql
 #import userSubscribedHistory.graphql
 #import tag.graphql
+#import component.graphql
 

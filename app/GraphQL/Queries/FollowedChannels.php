@@ -3,14 +3,14 @@
 namespace App\GraphQL\Queries;
 
 use Illuminate\Support\Facades\Auth;
-use Modules\PodcastApp\Models\Podcast;
+use Modules\PodcastApp\Models\Channel;
 
-final readonly class FollowedPodcasts
+final readonly class FollowedChannels
 {
     /** @param  array{}  $args */
     public function __invoke(null $_, array $args)
     {
-        return Podcast::query()
+        return Channel::query()
             ->whereHas("follows", function ($builder) {
                 $builder->where("user_id", Auth::id());
             })

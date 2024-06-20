@@ -3,15 +3,13 @@
 namespace Modules\PodcastApp\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Modules\PodcastApp\Models\Podcast;
+use Modules\PodcastApp\Models\Channel;
 
-class PodcastController extends Controller
+class ChannelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +38,7 @@ class PodcastController extends Controller
 
         $podcast_cover_path = Storage::put('public/covers', $cover_file);
 
-      return Podcast::query()
+      return Channel::query()
             ->create([
                 'title' => $request->title,
                 'user_id' => $user->id,

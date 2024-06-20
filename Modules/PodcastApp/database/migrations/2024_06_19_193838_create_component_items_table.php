@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seasons', function (Blueprint $table) {
+        Schema::create('component_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("channel_id")
+            $table->foreignId("component_id")
                 ->references("id")
-                ->on("channels")
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-            $table->string("title");
-            $table->text("description")->nullable();
+                ->on("components")
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->morphs("item");
+            $table->string("url")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seasons');
+        Schema::dropIfExists('component_items');
     }
 };

@@ -3,14 +3,14 @@
 namespace Modules\PodcastApp\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\PodcastApp\Models\Podcast;
+use Modules\PodcastApp\Models\Channel;
 
 class PodcastFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      */
-    protected $model = Podcast::class;
+    protected $model = Channel::class;
 
     /**
      * Define the model's default state.

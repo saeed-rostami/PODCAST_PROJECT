@@ -2,7 +2,7 @@ type Season @model(class: "Modules\\PodcastApp\\Models\\Season") {
     id: ID!
     title: String!
     description: String
-    podcast: Podcast! @belongsTo
+    channel: Channel! @belongsTo
     episodes: [Episode] @hasMany
     episodes_count: Int @count(relation: "episodes")
 

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->timestamp('mobile_verified_at')->nullable();
             $table->tinyInteger('registration_step')->default(1);
             $table->string('password')->nullable();
-            $table->enum("gender", ["MALE", "FEMALE", "OTHER"]);
+            $table->enum("gender", ["MALE", "FEMALE", "OTHER"])
+            ->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

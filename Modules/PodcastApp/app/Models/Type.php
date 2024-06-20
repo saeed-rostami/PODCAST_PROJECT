@@ -29,10 +29,10 @@ class Type extends Model
         return $this->hasMany(Category::class);
     }
 
-    public function podcasts(): HasManyThrough
+    public function channels(): HasManyThrough
     {
         return $this->hasManyThrough(
-            Podcast::class,
+            Channel::class,
             Category::class,
             'type_id',
             'category_id',
