@@ -24,6 +24,7 @@ class PodcastFactory extends Factory
             'user_id' => 1,
             "allow_comment" => $this->faker->boolean(),
             'cover' => "cover.jpg",
+            'financial_status' => "FREE"
         ];
     }
 }

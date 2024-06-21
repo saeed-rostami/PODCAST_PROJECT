@@ -41,6 +41,7 @@ type Channel @model(class: "Modules\\PodcastApp\\Models\\Channel") {
     isFollowed: Boolean @method(name: "isFollowed")
     listensCount: Int @method(name: "listensCount") @cache(maxAge: 6000)
     totalDuration: Int @method(name: "totalDuration") @cache(maxAge: 6000)
+    financial_status: String!
 
     jalali_created_at : String @method(name: "jalaliCreatedAt")
     created_at : DateTime!

@@ -4,10 +4,15 @@ extend type Query {
     episodes
     : [Episode!]! @all
 
-    likeEpisodes : [Episode]! @guard #//FETCH EPISODES THAT AUTH LIKED THEM
+    likeEpisodes : [Episode]! @guard #//FETCH EPISODES THAT AUTH USER LIKED THEM
 
-    #//FETCH EPISODES THAT AUTH LISTENED THEM
+    #//FETCH EPISODES THAT AUTH USER LISTENED THEM
     listenedEpisodes : [Episode]! @guard
+
+    #//FETCH EPISODES THAT AUTH USER SCHEDULED THEM
+    myDratEpisodes : [Episode]!
+    @field(resolver: "App\\GraphQL\\Queries\\MyDratEpisodes")
+    @guard
 }
 
 type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
@@ -33,7 +38,7 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     published_at : DateTime!
     created_at : DateTime!
 
-    jalali_publish_at : String @method(name: "jalaliPublishAt")
+    jalali_publish_at : String
     jalali_published_at : String @method(name: "jalaliPublishedAt")
 
 

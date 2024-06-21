@@ -24,6 +24,8 @@ return new class extends Migration
             $table->boolean("monetized")->default(0);
             $table->string("avatar")->nullable();
             $table->timestamp("birthday")->nullable();
+            $table->enum("gender", ["MALE", "FEMALE", "OTHER"])
+                ->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
