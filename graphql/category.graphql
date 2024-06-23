@@ -1,7 +1,11 @@
 extend type Query {
+#    FETCHES ALL CATEGORIES
     categories
     (type_id : ID @where(key: "type_id"))
     : [Category!]! @all
+
+
+    #    FETCHES A SINGLE CATEGORY
     category
     (id: ID @eq @rules(apply: ["exists:categories,id"])): Category @find
 
@@ -13,5 +17,6 @@ type Category @model(class: "Modules\\PodcastApp\\Models\\Category") {
     description: String
     status: Int
     type : Type @belongsTo
+    channels: [Channel]! @hasMany
     created_at : DateTime!
 }

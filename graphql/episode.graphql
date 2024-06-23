@@ -1,8 +1,12 @@
 extend type Query {
 
-    #//FETCH ALL CHANNELS
+    #//FETCH ALL Episode
     episodes
     : [Episode!]! @all
+
+    #//FETCH A SINGLE Episode
+    episode (id: Int
+    @eq) : Episode! @find
 
     likeEpisodes : [Episode]! @guard #//FETCH EPISODES THAT AUTH USER LIKED THEM
 

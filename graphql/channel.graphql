@@ -1,5 +1,4 @@
 extend type Query {
-
     channels #//FETCH ALL CHANNELS
     (
         user: Int @where(key: "user_id") #//A USER CHANNELS

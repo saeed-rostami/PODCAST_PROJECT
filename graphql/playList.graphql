@@ -1,11 +1,15 @@
-extend type Query {
-    playList: [PlayList!]! @guard @all @whereAuth(relation: "user")
+extend type Query @guard {
+#    FETCH AUTH USER PLAYLISTS
+    playLists: [PlayList!]!  @all @whereAuth(relation: "user")
 }
 
 
-extend type Mutation {
-    createPlayList(title: String! @rules(apply: ["required" , "max:16" , "min:3"]) is_private: Boolean! @rules(apply: ["required" , "bool"])) : Boolean
 
+extend type Mutation {
+    # CREATE A BLANK PLAYLIST
+    createPlayList(title: String! @rules(apply: ["required" , "max:16" , "min:3" , "string"]) is_private: Boolean! @rules(apply: ["required" , "bool"])) : Boolean
+
+    # SYNC EPISODE TO A PLAYLIST
     syncEpisodeToPlayList(playlist_id: Int! @rules(apply: ["required" , "exists:user_play_lists,id"]) episode_id: Int!
     @rules(apply: ["required" , "exists:episodes,id"])
 
