@@ -27,4 +27,5 @@ type Mutation
 #import userSubscribedHistory.graphql
 #import tag.graphql
 #import component.graphql
+#import advertisement.graphql
 

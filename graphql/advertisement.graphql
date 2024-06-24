@@ -1,0 +1,18 @@
+extend type Query {
+    advertisements: [Advertisement!]! @all
+}
+
+union AdsItem = Episode | Channel
+
+type Advertisement @model(class: "Modules\\PodcastApp\\Models\\Advertisement") {
+    id: ID!
+    title: String
+    description: String
+    cover: String!
+    url: String
+    item: AdsItem @morphTo
+    status: Boolean!
+    start_at: DateTime
+    end_at: DateTime
+
+}
