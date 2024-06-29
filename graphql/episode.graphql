@@ -1,7 +1,9 @@
 extend type Query {
-
     #//FETCH ALL Episode
     episodes
+    (
+        allEpisodes: Boolean @withoutGlobalScopes(names: ["published" , "secondScope"]))
+
     : [Episode!]! @all
 
     #//FETCH A SINGLE Episode
@@ -39,7 +41,7 @@ type Episode @model(class: "Modules\\PodcastApp\\Models\\Episode") {
     userListenedSecond: Int @method(name: "userListenedSecond")
     tags: [Tag]! @belongsToMany
     publish_at : DateTime!
-    published_at : DateTime!
+    published_at : DateTime
     created_at : DateTime!
 
     jalali_publish_at : String
