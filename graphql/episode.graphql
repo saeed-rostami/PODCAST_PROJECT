@@ -2,7 +2,7 @@ extend type Query {
     #//FETCH ALL Episode
     episodes
     (
-        allEpisodes: Boolean @withoutGlobalScopes(names: ["published" , "secondScope"]))
+        allEpisodes: Boolean @withoutGlobalScopes(names: ["published"]))
 
     : [Episode!]! @all
 

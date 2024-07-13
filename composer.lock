@@ -2933,16 +2933,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v6.36.3",
+            "version": "v6.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "dc3125d6b29da7552dfcf61dc5470aedc1cc533a"
+                "reference": "f60fb9f51397f282b7bd817aeef9391648b54f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/dc3125d6b29da7552dfcf61dc5470aedc1cc533a",
-                "reference": "dc3125d6b29da7552dfcf61dc5470aedc1cc533a",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/f60fb9f51397f282b7bd817aeef9391648b54f32",
+                "reference": "f60fb9f51397f282b7bd817aeef9391648b54f32",
                 "shasum": ""
             },
             "require": {
@@ -2979,7 +2979,7 @@
                 "mll-lab/php-cs-fixer-config": "^5",
                 "mockery/mockery": "^1.5",
                 "nesbot/carbon": "^2.62.1",
-                "orchestra/testbench": "^7.7 || ^8.8 || ^9",
+                "orchestra/testbench": "^7.11 || ^8.8 || ^9",
                 "phpbench/phpbench": "^1.2.6",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^1.10.3",
@@ -3063,7 +3063,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-05-05T09:15:52+00:00"
+            "time": "2024-07-08T09:41:15+00:00"
         },
         {
             "name": "nwidart/laravel-modules",

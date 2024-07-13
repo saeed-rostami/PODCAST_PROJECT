@@ -38,7 +38,7 @@ type Channel @model(class: "Modules\\PodcastApp\\Models\\Channel") {
     comments_count: Int @count(relation: "comments")
     follows_count: Int @count(relation: "follows")
     isFollowed: Boolean @method(name: "isFollowed")
-    listensCount: Int @method(name: "listensCount") @cache(maxAge: 6000)
+    listens_count: Int @method(name: "listensCount") @cache(maxAge: 6000)
     totalDuration: Int @method(name: "totalDuration") @cache(maxAge: 6000)
     financial_status: String!
 
