@@ -12,12 +12,13 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Laravel\Scout\Searchable;
 use Modules\PodcastApp\Database\Factories\PodcastFactory;
 use Modules\PodcastApp\Traits\JalaliDate;
 
 class Channel extends Model
 {
-    use HasFactory, SoftDeletes, JalaliDate;
+    use HasFactory, SoftDeletes, JalaliDate, Searchable;
 
     protected $table = "channels";
 
@@ -30,6 +31,7 @@ class Channel extends Model
     {
         return PodcastFactory::new();
     }
+
 
     public function category(): BelongsTo
     {

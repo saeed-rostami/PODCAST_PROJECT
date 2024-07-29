@@ -3,9 +3,10 @@ extend type Query {
     (
         user: Int @where(key: "user_id") #//A USER CHANNELS
         category: Int @where(key: "category_id") #//A CATEGORY CHANNELS
-    )
+    ): [Channel!]! @all
 
-    : [Channel!]! @all
+    #    SEARCH IN CHANNELS
+    search_channels(search: String @search): [Channel!]! @all
 
     #//FETCH A SINGLE CHANNELS
     channel (id: Int

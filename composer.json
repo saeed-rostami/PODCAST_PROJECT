@@ -7,9 +7,12 @@
     "require": {
         "php": "^8.2",
         "hekmatinasser/verta": "^8.4",
+        "http-interop/http-factory-guzzle": "^1.2",
         "laravel/framework": "^11.9",
+        "laravel/scout": "^10.10",
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.9",
+        "meilisearch/meilisearch-php": "^1.9",
         "mll-lab/graphql-php-scalars": "^6.2",
         "mll-lab/laravel-graphiql": "^3.2",
         "nuwave/lighthouse": "^6.36",

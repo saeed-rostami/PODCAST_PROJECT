@@ -6,6 +6,10 @@ extend type Query {
 
     : [Episode!]! @all
 
+    #    SEARCH IN EPISODES
+    search_episodes(search: String @search): [Episode!]! @all
+
+
     #//FETCH A SINGLE Episode
     episode (id: Int
     @eq) : Episode! @find

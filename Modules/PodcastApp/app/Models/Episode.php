@@ -12,13 +12,14 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Laravel\Scout\Searchable;
 use Modules\PodcastApp\Database\Factories\EpisodeFactory;
 use Modules\PodcastApp\Traits\JalaliDate;
 use Modules\PodcastApp\Traits\Taging;
 
 class Episode extends Model
 {
-    use HasFactory, SoftDeletes, Taging, JalaliDate;
+    use HasFactory, SoftDeletes, Taging, JalaliDate, Searchable;
 
     protected $table = "episodes";
 
