@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
       - name: update-liara
@@ -17,4 +17,4 @@ jobs:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         run: |
           npm i -g @liara/cli@5
-          liara deploy --app="Laravel" --api-token="$LIARA_TOKEN" --no-app-logs
+          liara deploy --app="Laravel" --api-token="$LIARA_TOKEN" --no-app-logs --PORT:5432
