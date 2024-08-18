@@ -19,7 +19,7 @@ use Modules\PodcastApp\Traits\Taging;
 
 class Episode extends Model
 {
-    use HasFactory, SoftDeletes, Taging, JalaliDate, Searchable;
+    use HasFactory, SoftDeletes, Taging, JalaliDate;
 
     protected $table = "episodes";
 

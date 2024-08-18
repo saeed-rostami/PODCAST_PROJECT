@@ -18,7 +18,7 @@ use Modules\PodcastApp\Traits\JalaliDate;
 
 class Channel extends Model
 {
-    use HasFactory, SoftDeletes, JalaliDate, Searchable;
+    use HasFactory, SoftDeletes, JalaliDate;
 
     protected $table = "channels";
 
