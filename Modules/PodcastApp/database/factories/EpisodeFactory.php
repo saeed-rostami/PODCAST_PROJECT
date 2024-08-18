@@ -25,6 +25,7 @@ class EpisodeFactory extends Factory
             "allow_share" => $this->faker->boolean(),
             "allow_comment" => $this->faker->boolean(),
             "publish_at" => $this->faker->date(),
+            "published_at" => $this->faker->randomElement([$this->faker->date(), null]),
 
         ];
     }
