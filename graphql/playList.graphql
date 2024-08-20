@@ -5,7 +5,7 @@ extend type Query @guard {
 
 
 
-extend type Mutation {
+extend type Mutation @guard  {
     # CREATE A BLANK PLAYLIST
     createPlayList(title: String! @rules(apply: ["required" , "max:16" , "min:3" , "string"]) is_private: Boolean! @rules(apply: ["required" , "bool"])) : Boolean
 
@@ -14,6 +14,10 @@ extend type Mutation {
     @rules(apply: ["required" , "exists:episodes,id"])
 
     ): Boolean
+
+    # DELETE A PLAYLIST
+    deletePlayList(id: Int! @rules(apply: ["required" , "exists:user_play_lists,id"])
+    ) : Boolean
 }
 
 
