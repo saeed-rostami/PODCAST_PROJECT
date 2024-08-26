@@ -1,6 +1,6 @@
 extend type Query @guard {
 #    FETCH AUTH USER PLAYLISTS
-    playLists: [PlayList!]!  @all @whereAuth(relation: "user")
+    playLists: [PlayList!]! @all @whereAuth(relation: "user")
 }
 
 
