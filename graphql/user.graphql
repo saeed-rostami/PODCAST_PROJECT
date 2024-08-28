@@ -42,7 +42,7 @@ type User {
     profile : UserProfile! @belongsTo
 
     "Non-unique name."
-    username: String!
+    username: String
 
     registration_step : Int!
     "Unique email address."
