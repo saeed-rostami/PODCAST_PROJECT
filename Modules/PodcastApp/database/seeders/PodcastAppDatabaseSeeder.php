@@ -16,9 +16,9 @@ class PodcastAppDatabaseSeeder extends Seeder
     public function run(): void
     {
         // $this->call([]);
-        $this->call(TypeSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(PlanSeedSeeder::class);
+//        $this->call(TypeSeeder::class);
+//        $this->call(CategorySeeder::class);
+//        $this->call(PlanSeedSeeder::class);
 
         Channel::factory()
             ->has(Season::factory()
