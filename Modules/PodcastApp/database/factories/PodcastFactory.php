@@ -20,7 +20,7 @@ class PodcastFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->text(150),
-            'category_id' => rand(1,30),
+            'category_id' => rand(1,15),
             'user_id' => 1,
             "allow_comment" => $this->faker->boolean(),
             'cover' => "cover.jpg",
